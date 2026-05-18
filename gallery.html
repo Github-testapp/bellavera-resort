@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse the gallery of The Bellavera Resort & Spa — rooms, dining, spa, beach, golf, events and more from Coral Bay, Florida.">
+  <title>Gallery | The Bellavera Resort &amp; Spa</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+
+  <div class="brand-line" aria-hidden="true"></div>
+  <div class="utility-bar"><div class="wrap utility-bar__inner"><nav class="utility-nav"><a href="#">Our Story</a><a href="#">Memberships</a><a href="#">Gift Cards</a><a href="#">Contact</a><a href="#">Careers</a></nav><a href="tel:18882354100" class="utility-phone">+1 888-235-4100</a></div></div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap site-header__inner">
+      <a href="index.html" class="site-logo" aria-label="The Bellavera — Home">
+        <svg class="logo-svg" viewBox="0 0 240 82" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M52,18 C68,8 84,28 100,18 C116,8 132,28 148,18 C164,8 180,28 188,20" stroke="#b8902e" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <text x="120" y="41" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="15" letter-spacing="5" fill="currentColor">The</text>
+          <text x="120" y="61" text-anchor="middle" font-family="'Jost', Arial, sans-serif" font-weight="600" font-size="22" letter-spacing="9" fill="currentColor">BELLAVERA</text>
+          <line x1="36" y1="68" x2="204" y2="68" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+          <text x="120" y="78" text-anchor="middle" font-family="'Jost', Arial, sans-serif" font-weight="400" font-size="7.5" letter-spacing="3" fill="currentColor" opacity="0.55">CORAL BAY · FLORIDA</text>
+        </svg>
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="main-nav__list">
+          <li class="has-dropdown"><a href="stays.html">Stays</a><div class="dropdown"><a href="stays.html#oceanview">Oceanview Rooms</a><a href="stays.html#garden">Garden Suites</a><a href="stays.html#crest">The Crest Collection</a><a href="stays.html#accessible">Accessible Rooms</a></div></li>
+          <li class="has-dropdown"><a href="experiences.html">Experiences</a><div class="dropdown"><a href="experiences.html#beach">Pools &amp; Private Beach</a><a href="experiences.html#spa">Spa Bellavera</a><a href="experiences.html#golf">Golf Links</a><a href="experiences.html#tennis">Tennis Pavilion</a><a href="experiences.html#boutiques">Boutiques</a><a href="experiences.html#kids">Pebbles Kids Club</a></div></li>
+          <li class="has-dropdown"><a href="dining.html">Dining</a><div class="dropdown"><a href="dining.html#azure-grill">Azure Grill</a><a href="dining.html#coral-room">The Coral Room</a><a href="dining.html#sirena">Sirena Seafood</a><a href="dining.html#oyster-deck">The Oyster Deck</a><a href="dining.html#sunset-lounge">Sunset Lounge</a></div></li>
+          <li class="has-dropdown"><a href="gatherings.html">Gatherings</a><div class="dropdown"><a href="gatherings.html#conferences">Conferences &amp; Retreats</a><a href="gatherings.html#weddings">Weddings &amp; Ceremonies</a><a href="gatherings.html#private">Private Celebrations</a></div></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <a href="#" class="btn btn--navy header-cta">Reserve a Room</a>
+        <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Gallery Header -->
+  <div class="gallery-header">
+    <h1>The Bellavera <em>Gallery</em></h1>
+    <p>A visual journey through the resort</p>
+  </div>
+
+  <!-- Filter Buttons -->
+  <div class="gallery-filters" role="group" aria-label="Filter gallery by category">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="stays">Stays</button>
+    <button class="filter-btn" data-filter="dining">Dining</button>
+    <button class="filter-btn" data-filter="experiences">Experiences</button>
+    <button class="filter-btn" data-filter="gatherings">Gatherings</button>
+  </div>
+
+  <!-- Gallery Grid -->
+  <section class="gallery-section">
+    <div class="wrap">
+      <div class="gallery-grid" id="gallery-grid">
+
+        <div class="gallery-item" data-cat="stays">
+          <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=700&q=80" alt="Oceanview suite interior" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="experiences">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&q=80" alt="Private Atlantic beachfront" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="dining">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80" alt="Azure Grill rooftop dining" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="stays">
+          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=700&q=80" alt="Crest Collection suite" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="experiences">
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&q=80" alt="Infinity pool at sunset" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="gatherings">
+          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=700&q=80" alt="Grand ballroom event setup" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="experiences">
+          <img src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=700&q=80" alt="Spa Bellavera treatment room" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="dining">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=700&q=80" alt="The Coral Room interior" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="stays">
+          <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=700&q=80" alt="Oceanview room bedroom" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="gatherings">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=700&q=80" alt="Beachfront wedding ceremony" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="experiences">
+          <img src="https://images.unsplash.com/photo-1535131749284-d18a85c1e1e4?w=700&q=80" alt="Golf Links championship course" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="dining">
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700&q=80" alt="The Oyster Deck raw bar" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="stays">
+          <img src="https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=700&q=80" alt="Garden Suite private terrace" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="experiences">
+          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=700&q=80" alt="Atlantic shoreline at dawn" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="gatherings">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80" alt="Vista Conference Centre" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="dining">
+          <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=700&q=80" alt="Sunset Lounge cocktails" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="experiences">
+          <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=700&q=80" alt="Tennis Pavilion clay courts" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="stays">
+          <img src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?w=700&q=80" alt="Resort aerial view at dusk" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="dining">
+          <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=700&q=80" alt="Sirena Seafood fresh catch" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+        <div class="gallery-item" data-cat="gatherings">
+          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=700&q=80" alt="Private celebration dinner terrace" loading="lazy">
+          <div class="gallery-item__overlay"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (no newsletter on gallery page) -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="site-footer__body"><div class="wrap site-footer__grid">
+      <div class="footer-brand"><a href="index.html" aria-label="The Bellavera — Home"><svg class="logo-svg logo-svg--footer" viewBox="0 0 240 82" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M52,18 C68,8 84,28 100,18 C116,8 132,28 148,18 C164,8 180,28 188,20" stroke="#b8902e" stroke-width="1.6" fill="none" stroke-linecap="round"/><text x="120" y="41" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="15" letter-spacing="5" fill="white">The</text><text x="120" y="61" text-anchor="middle" font-family="'Jost', Arial, sans-serif" font-weight="600" font-size="22" letter-spacing="9" fill="white">BELLAVERA</text><line x1="36" y1="68" x2="204" y2="68" stroke="rgba(255,255,255,0.25)" stroke-width="0.5"/><text x="120" y="78" text-anchor="middle" font-family="'Jost', Arial, sans-serif" font-weight="400" font-size="7.5" letter-spacing="3" fill="rgba(255,255,255,0.45)">CORAL BAY · FLORIDA</text></svg></a>
+        <address>12 Ocean Vista Drive<br>Coral Bay, FL 33401<br><a href="tel:18882354100">+1 888-235-4100</a><br><a href="mailto:reservations@thebellavera.com">reservations@thebellavera.com</a></address>
+        <div class="footer-social"><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation"><div class="footer-col"><h4>Stays</h4><a href="stays.html#oceanview">Oceanview Rooms</a><a href="stays.html#garden">Garden Suites</a><a href="stays.html#crest">The Crest Collection</a><a href="stays.html#accessible">Accessible Rooms</a></div><div class="footer-col"><h4>Experiences</h4><a href="experiences.html#beach">Pools &amp; Beach</a><a href="experiences.html#spa">Spa Bellavera</a><a href="experiences.html#golf">Golf Links</a><a href="experiences.html#tennis">Tennis Pavilion</a></div><div class="footer-col"><h4>Dining</h4><a href="dining.html#azure-grill">Azure Grill</a><a href="dining.html#coral-room">The Coral Room</a><a href="dining.html#sirena">Sirena Seafood</a><a href="dining.html#oyster-deck">The Oyster Deck</a><a href="dining.html#sunset-lounge">Sunset Lounge</a></div><div class="footer-col"><h4>Gatherings</h4><a href="gatherings.html#conferences">Conferences</a><a href="gatherings.html#weddings">Weddings</a><a href="gatherings.html#private">Private Events</a><h4 style="margin-top:1.5rem">More</h4><a href="offers.html">Current Offers</a><a href="#">Gift Cards</a><a href="#">Press &amp; Media</a><a href="#">Careers</a></div></nav>
+    </div></div>
+    <div class="site-footer__bottom"><div class="wrap site-footer__bottom-inner"><p>&copy; 2026 The Bellavera Resort &amp; Spa, Inc. All rights reserved.</p><nav class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Accessibility</a><a href="#">Sitemap</a></nav></div></div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Gallery Filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        galleryItems.forEach(item => {
+          if (filter === 'all' || item.dataset.cat === filter) {
+            item.removeAttribute('hidden');
+          } else {
+            item.setAttribute('hidden', '');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

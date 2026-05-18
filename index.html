@@ -3,340 +3,474 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Bellavera – Luxury Oceanfront Resort & Spa</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="The Bellavera – A legendary oceanfront resort in Coral Bay, Florida. Award-winning dining, a private beach, championship golf, and a world-class spa.">
+  <meta name="theme-color" content="#1b2e4b">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The Bellavera Resort & Spa | Coral Bay, Florida">
+  <meta property="og:description" content="Where the Atlantic meets effortless luxury. Discover The Bellavera — Coral Bay's most celebrated oceanfront resort.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>The Bellavera Resort &amp; Spa | Coral Bay, Florida</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Nunito+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Top Utility Bar -->
+  <!-- Gold accent line -->
+  <div class="brand-line" aria-hidden="true"></div>
+
+  <!-- Utility Bar -->
   <div class="utility-bar">
-    <div class="utility-bar__inner">
-      <nav class="utility-nav">
+    <div class="wrap utility-bar__inner">
+      <nav class="utility-nav" aria-label="Secondary navigation">
         <a href="#">Our Story</a>
         <a href="#">Memberships</a>
         <a href="#">Gift Cards</a>
         <a href="#">Contact</a>
         <a href="#">Careers</a>
       </nav>
-      <div class="utility-bar__right">
-        <a href="#" class="btn btn--gold">Check Availability</a>
-      </div>
+      <a href="tel:18882354100" class="utility-phone" aria-label="Call us at 1-888-235-4100">+1 888-235-4100</a>
     </div>
   </div>
 
-  <!-- Main Header -->
+  <!-- Site Header -->
   <header class="site-header" id="site-header">
-    <div class="site-header__inner">
-      <a href="#" class="site-logo">
-        <div class="logo-lockup">
-          <span class="logo-the">The</span>
-          <span class="logo-name">BELLAVERA</span>
-        </div>
+    <div class="wrap site-header__inner">
+
+      <a href="index.html" class="site-logo" aria-label="The Bellavera — Home">
+        <svg class="logo-svg" viewBox="0 0 240 82" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <path d="M52,18 C68,8 84,28 100,18 C116,8 132,28 148,18 C164,8 180,28 188,20"
+                stroke="#b8902e" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <text x="120" y="41" text-anchor="middle"
+                font-family="'Cormorant Garamond', Georgia, serif"
+                font-style="italic" font-size="15" letter-spacing="5" fill="currentColor">The</text>
+          <text x="120" y="61" text-anchor="middle"
+                font-family="'Jost', Arial, sans-serif"
+                font-weight="600" font-size="22" letter-spacing="9" fill="currentColor">BELLAVERA</text>
+          <line x1="36" y1="68" x2="204" y2="68" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+          <text x="120" y="78" text-anchor="middle"
+                font-family="'Jost', Arial, sans-serif"
+                font-weight="400" font-size="7.5" letter-spacing="3" fill="currentColor" opacity="0.55">CORAL BAY · FLORIDA</text>
+        </svg>
       </a>
 
-      <nav class="main-nav" id="main-nav">
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <ul class="main-nav__list">
           <li class="has-dropdown">
-            <a href="#">Stays</a>
+            <a href="stays.html">Stays</a>
             <div class="dropdown">
-              <a href="#">Oceanview Rooms</a>
-              <a href="#">Garden Suites</a>
-              <a href="#">The Crest Collection</a>
-              <a href="#">Accessible Rooms</a>
+              <a href="stays.html#oceanview">Oceanview Rooms</a>
+              <a href="stays.html#garden">Garden Suites</a>
+              <a href="stays.html#crest">The Crest Collection</a>
+              <a href="stays.html#accessible">Accessible Rooms</a>
             </div>
           </li>
           <li class="has-dropdown">
-            <a href="#">Experiences</a>
+            <a href="experiences.html">Experiences</a>
             <div class="dropdown">
-              <a href="#">Pools &amp; Private Beach</a>
-              <a href="#">Spa Bellavera</a>
-              <a href="#">Golf Club</a>
-              <a href="#">Tennis &amp; Padel</a>
-              <a href="#">Boutiques</a>
-              <a href="#">Family &amp; Kids</a>
+              <a href="experiences.html#beach">Pools &amp; Private Beach</a>
+              <a href="experiences.html#spa">Spa Bellavera</a>
+              <a href="experiences.html#golf">Golf Links</a>
+              <a href="experiences.html#tennis">Tennis Pavilion</a>
+              <a href="experiences.html#boutiques">Boutiques</a>
+              <a href="experiences.html#kids">Pebbles Kids Club</a>
             </div>
           </li>
           <li class="has-dropdown">
-            <a href="#">Dining</a>
+            <a href="dining.html">Dining</a>
             <div class="dropdown">
-              <a href="#">Azure Grill</a>
-              <a href="#">The Coral Room</a>
-              <a href="#">Sirena Seafood</a>
-              <a href="#">The Oyster Deck</a>
-              <a href="#">Sunset Lounge</a>
+              <a href="dining.html#azure-grill">Azure Grill</a>
+              <a href="dining.html#coral-room">The Coral Room</a>
+              <a href="dining.html#sirena">Sirena Seafood</a>
+              <a href="dining.html#oyster-deck">The Oyster Deck</a>
+              <a href="dining.html#sunset-lounge">Sunset Lounge</a>
             </div>
           </li>
           <li class="has-dropdown">
-            <a href="#">Gatherings</a>
+            <a href="gatherings.html">Gatherings</a>
             <div class="dropdown">
-              <a href="#">Conferences &amp; Retreats</a>
-              <a href="#">Weddings &amp; Ceremonies</a>
-              <a href="#">Private Celebrations</a>
+              <a href="gatherings.html#conferences">Conferences &amp; Retreats</a>
+              <a href="gatherings.html#weddings">Weddings &amp; Ceremonies</a>
+              <a href="gatherings.html#private">Private Celebrations</a>
             </div>
           </li>
-          <li><a href="#">Offers</a></li>
-          <li><a href="#">Gallery</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
         </ul>
       </nav>
 
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="site-header__actions">
+        <a href="#" class="btn btn--navy header-cta">Reserve a Room</a>
+        <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- ─── HERO ─────────────────────────────────────────────── -->
+  <section class="hero" aria-label="Welcome">
     <div class="hero__slides">
-      <div class="hero__slide hero__slide--1 active">
+      <div class="hero__slide active">
+        <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1920&q=80')"></div>
         <div class="hero__overlay"></div>
       </div>
-      <div class="hero__slide hero__slide--2">
+      <div class="hero__slide">
+        <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&q=80')"></div>
         <div class="hero__overlay"></div>
       </div>
-      <div class="hero__slide hero__slide--3">
+      <div class="hero__slide">
+        <div class="hero__bg" style="background-image:url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=80')"></div>
         <div class="hero__overlay"></div>
       </div>
     </div>
+
     <div class="hero__content">
       <p class="hero__eyebrow">Coral Bay, Florida</p>
       <h1 class="hero__title">Feel it the moment<br><em>you arrive.</em></h1>
-      <p class="hero__subtitle">Sun-kissed shores, unhurried elegance, and memories that linger long after you leave.</p>
-      <a href="#" class="btn btn--white">Reserve Your Stay</a>
+      <p class="hero__sub">Sun-kissed shores, unhurried days, and a standard of care that stays with you long after you leave.</p>
+      <div class="hero__cta-group">
+        <a href="#" class="btn btn--outline-white">Reserve Your Stay</a>
+        <a href="#stays" class="hero__anchor">Explore the resort ↓</a>
+      </div>
     </div>
-    <div class="hero__dots">
-      <button class="hero__dot active" data-index="0"></button>
-      <button class="hero__dot" data-index="1"></button>
-      <button class="hero__dot" data-index="2"></button>
-    </div>
+
+    <nav class="hero__dots" aria-label="Slideshow controls">
+      <button class="hero__dot active" data-slide="0" aria-label="Go to slide 1"></button>
+      <button class="hero__dot" data-slide="1" aria-label="Go to slide 2"></button>
+      <button class="hero__dot" data-slide="2" aria-label="Go to slide 3"></button>
+    </nav>
   </section>
 
-  <!-- Promo Banner -->
-  <div class="promo-banner">
-    <div class="promo-banner__inner">
-      <p><strong>Summer Escape Package —</strong> Complimentary breakfast daily &amp; complimentary fifth night. <a href="#">Explore the Offer &rarr;</a></p>
+  <!-- ─── PROMO BANNER ──────────────────────────────────────── -->
+  <div class="promo-banner" role="complementary" aria-label="Current offer">
+    <div class="wrap promo-banner__inner">
+      <p>
+        <strong>Summer Escape —</strong>
+        Complimentary breakfast daily &amp; your fifth night is on us.
+        <a href="#" class="promo-link">View Offer →</a>
+      </p>
     </div>
   </div>
 
-  <!-- Section: Stays -->
-  <section class="feature-section feature-section--light" id="stays">
-    <div class="feature-section__media">
-      <div class="feature-section__image" style="background-image: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=80')"></div>
+  <!-- ─── SPLIT: STAYS ──────────────────────────────────────── -->
+  <section class="split" id="stays">
+    <div class="split__media">
+      <div class="split__img" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1100&q=80')"
+           role="img" aria-label="Oceanview suite interior at The Bellavera"></div>
     </div>
-    <div class="feature-section__content">
-      <p class="feature-section__label">Accommodations</p>
-      <h2 class="feature-section__title">Rooms designed<br>for true rest.</h2>
-      <p class="feature-section__text">
-        Each room and suite is crafted with care — warm natural textures, handpicked artwork, and wide windows that frame the sea or lush garden courtyards. Whether you choose an oceanview room or a private suite, comfort is woven into every detail.
-      </p>
-      <a href="#" class="btn btn--dark">View Rooms &amp; Suites</a>
+    <div class="split__body split__body--cream">
+      <p class="eyebrow">Accommodations</p>
+      <h2>Rooms designed<br>for <em>true rest.</em></h2>
+      <p>Each room and suite is an exercise in considered comfort — warm natural textures, curated art, and generous windows framing the Atlantic or our landscaped gardens. From serene guest rooms to sprawling oceanfront suites, every stay feels personal.</p>
+      <a href="#" class="btn btn--navy">View Rooms &amp; Suites</a>
     </div>
   </section>
 
-  <!-- Section: Dining -->
-  <section class="feature-section feature-section--dark feature-section--reverse" id="dining">
-    <div class="feature-section__media">
-      <div class="feature-section__image" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80')"></div>
+  <!-- ─── SPLIT: DINING ─────────────────────────────────────── -->
+  <section class="split split--flip split--navy" id="dining">
+    <div class="split__media">
+      <div class="split__img" style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1100&q=80')"
+           role="img" aria-label="Dining at The Coral Room"></div>
     </div>
-    <div class="feature-section__content">
-      <p class="feature-section__label">Dining</p>
-      <h2 class="feature-section__title">Tables worth<br><em>lingering over.</em></h2>
-      <p class="feature-section__text">
-        From the oceanfront Oyster Deck to the intimate Coral Room, every dish is a celebration of coastal flavors and culinary craft. Our chefs work with local fishermen and growers daily to bring you something extraordinary on every plate.
-      </p>
+    <div class="split__body split__body--navy">
+      <p class="eyebrow eyebrow--gold">Dining</p>
+      <h2>Tables worth<br><em>lingering over.</em></h2>
+      <p>From the breezy Oyster Deck above the waterline to the candlelit intimacy of The Coral Room, every meal is composed with intention. Our chefs source daily from local fishermen and small farms — because remarkable ingredients make every dish extraordinary.</p>
       <a href="#" class="btn btn--gold">Explore Dining</a>
     </div>
   </section>
 
-  <!-- Section: Experiences -->
-  <section class="feature-section feature-section--light" id="experiences">
-    <div class="feature-section__media">
-      <div class="feature-section__image" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&q=80')"></div>
+  <!-- ─── SPLIT: EXPERIENCES ────────────────────────────────── -->
+  <section class="split" id="experiences">
+    <div class="split__media">
+      <div class="split__img" style="background-image:url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1100&q=80')"
+           role="img" aria-label="Infinity pool overlooking the Atlantic"></div>
     </div>
-    <div class="feature-section__content">
-      <p class="feature-section__label">Experiences</p>
-      <h2 class="feature-section__title">Space to breathe<br>and rediscover.</h2>
-      <p class="feature-section__text">
-        Drift between three resort pools or sink into the warm Atlantic on our private beach. Revive at Spa Bellavera, sharpen your game on the golf course, or simply watch the sun dip into the horizon. Every day brings something worth savoring.
-      </p>
-      <a href="#" class="btn btn--dark">Discover Experiences</a>
+    <div class="split__body split__body--cream">
+      <p class="eyebrow">Experiences</p>
+      <h2>Space to breathe<br>and <em>rediscover.</em></h2>
+      <p>Drift between three resort pools, sink into the warm Atlantic from our private beach, or surrender to stillness at Spa Bellavera. For those seeking more, our championship golf links, tennis pavilion, and curated boutiques await.</p>
+      <a href="#" class="btn btn--navy">Discover Experiences</a>
     </div>
   </section>
 
-  <!-- Section: The Crest Collection -->
-  <section class="feature-section feature-section--dark feature-section--reverse" id="crest">
-    <div class="feature-section__media">
-      <div class="feature-section__image" style="background-image: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&q=80')"></div>
+  <!-- ─── SPLIT: CREST COLLECTION ──────────────────────────── -->
+  <section class="split split--flip split--navy" id="crest">
+    <div class="split__media">
+      <div class="split__img" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1100&q=80')"
+           role="img" aria-label="The Crest Collection private lounge"></div>
     </div>
-    <div class="feature-section__content">
-      <p class="feature-section__label">The Crest Collection</p>
-      <h2 class="feature-section__title">A world above<br><em>the rest.</em></h2>
-      <p class="feature-section__text">
-        Perched on the top two floors, The Crest Collection offers a private lounge, dedicated concierge, in-suite check-in, and panoramic views from every window. An entirely different level of stay, reserved for those who want simply the best.
-      </p>
+    <div class="split__body split__body--navy">
+      <p class="eyebrow eyebrow--gold">The Crest Collection</p>
+      <h2>A world above<br><em>the rest.</em></h2>
+      <p>Occupying the top two floors, The Crest Collection is our most exclusive offering — private check-in, a dedicated concierge, personal butler service, and sweeping panoramic views from every room. For those who simply want the finest.</p>
       <a href="#" class="btn btn--gold">Discover The Crest</a>
     </div>
   </section>
 
-  <!-- Section: Gatherings -->
-  <section class="feature-section feature-section--light" id="gatherings">
-    <div class="feature-section__media">
-      <div class="feature-section__image" style="background-image: url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=900&q=80')"></div>
+  <!-- ─── SPLIT: GATHERINGS ─────────────────────────────────── -->
+  <section class="split" id="gatherings">
+    <div class="split__media">
+      <div class="split__img" style="background-image:url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=1100&q=80')"
+           role="img" aria-label="Grand ballroom at The Bellavera"></div>
     </div>
-    <div class="feature-section__content">
-      <p class="feature-section__label">Gatherings</p>
-      <h2 class="feature-section__title">Remarkable settings<br>for every occasion.</h2>
-      <p class="feature-section__text">
-        From intimate ceremonies on the shore to large-scale corporate summits, The Bellavera transforms every gathering into an unforgettable event. Our dedicated team handles every detail so you can be fully present for what matters most.
-      </p>
-      <a href="#" class="btn btn--dark">Plan Your Event</a>
-    </div>
-  </section>
-
-  <!-- Highlights Grid -->
-  <section class="highlights-section">
-    <div class="highlights-section__header">
-      <h2>Everything you need.<br><em>All under one roof.</em></h2>
-    </div>
-    <div class="highlights-grid">
-      <div class="highlight-card">
-        <div class="highlight-card__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 22l2-7L17 2l3 3L7 18l-5 4z"/><path d="M14 5l3 3"/></svg>
-        </div>
-        <h3>Spa Bellavera</h3>
-        <p>A sanctuary of calm offering signature treatments, thermal hydrotherapy, and therapists trained in the art of true restoration.</p>
-      </div>
-      <div class="highlight-card">
-        <div class="highlight-card__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
-        </div>
-        <h3>Private Beach</h3>
-        <p>Half a mile of secluded Atlantic beachfront with dedicated beach butlers, watersport rentals, and sunset cocktail service.</p>
-      </div>
-      <div class="highlight-card">
-        <div class="highlight-card__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>Championship Golf</h3>
-        <p>Two 18-hole championship courses set against Atlantic breezes, with certified instruction and a fully stocked pro shop on site.</p>
-      </div>
-      <div class="highlight-card">
-        <div class="highlight-card__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        </div>
-        <h3>Families Welcome</h3>
-        <p>Supervised kids programs, a dedicated family pool, and teen adventures ensure every generation leaves with stories to tell.</p>
-      </div>
+    <div class="split__body split__body--cream">
+      <p class="eyebrow">Gatherings</p>
+      <h2>Grand settings<br>for every <em>occasion.</em></h2>
+      <p>From a barefoot wedding ceremony on the shore to a landmark corporate summit, The Bellavera provides a backdrop as memorable as the occasion. Our dedicated events team handles every last detail so you can be fully present for what matters.</p>
+      <a href="#" class="btn btn--navy">Plan Your Event</a>
     </div>
   </section>
 
-  <!-- Testimonial / Quote -->
-  <section class="quote-section">
-    <blockquote>
-      <p>"The Bellavera raises the bar for what a coastal resort can be — effortlessly gracious, breathtakingly beautiful."</p>
-      <cite>— Condé Nast Traveler, Gold List</cite>
-    </blockquote>
+  <!-- ─── AWARDS STRIP ──────────────────────────────────────── -->
+  <section class="awards" aria-labelledby="awards-heading">
+    <div class="wrap awards__inner">
+      <p class="awards__label" id="awards-heading">Recognition</p>
+      <div class="awards__row">
+        <div class="award">
+          <div class="award__stars" aria-label="Five stars">★★★★★</div>
+          <p class="award__title">Five-Star Award</p>
+          <p class="award__source">Meridian Select</p>
+        </div>
+        <div class="award-sep" aria-hidden="true"></div>
+        <div class="award">
+          <div class="award__mark">◆</div>
+          <p class="award__title">Gold Collection 2024</p>
+          <p class="award__source">Voyager Travel Guide</p>
+        </div>
+        <div class="award-sep" aria-hidden="true"></div>
+        <div class="award">
+          <div class="award__mark">◈</div>
+          <p class="award__title">Best Coastal Resort</p>
+          <p class="award__source">The Coastal Review</p>
+        </div>
+        <div class="award-sep" aria-hidden="true"></div>
+        <div class="award">
+          <div class="award__stars" aria-label="Five stars">★★★★★</div>
+          <p class="award__title">Reader's Choice</p>
+          <p class="award__source">Latitude Magazine</p>
+        </div>
+        <div class="award-sep" aria-hidden="true"></div>
+        <div class="award">
+          <div class="award__mark">✦</div>
+          <p class="award__title">Top 50 World Hotels</p>
+          <p class="award__source">Azure Hospitality Awards</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Instagram Strip -->
-  <section class="instagram-section">
-    <div class="instagram-section__header">
-      <h2>Life at The Bellavera</h2>
-      <p><a href="#">@bellavera_resort</a></p>
-    </div>
-    <div class="instagram-grid">
-      <div class="instagram-grid__item" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80')"></div>
-      <div class="instagram-grid__item" style="background-image: url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=400&q=80')"></div>
-      <div class="instagram-grid__item" style="background-image: url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=400&q=80')"></div>
-      <div class="instagram-grid__item" style="background-image: url('https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=400&q=80')"></div>
-      <div class="instagram-grid__item" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80')"></div>
+  <!-- ─── HIGHLIGHTS GRID ───────────────────────────────────── -->
+  <section class="highlights" aria-labelledby="hl-heading">
+    <div class="wrap">
+      <header class="section-header">
+        <h2 id="hl-heading">Everything you need.<br><em>Under one roof.</em></h2>
+      </header>
+      <div class="hl-grid">
+
+        <article class="hl-card reveal">
+          <div class="hl-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="14" r="7"/>
+              <path d="M7,36 Q20,24 33,36"/>
+              <path d="M15,7 Q20,3 25,7"/>
+            </svg>
+          </div>
+          <h3>Spa Bellavera</h3>
+          <p>A sanctuary of pure calm — signature treatments, hydrotherapy rituals, and expert therapists devoted to your complete renewal.</p>
+        </article>
+
+        <article class="hl-card reveal">
+          <div class="hl-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4,28 Q10,18 20,21 Q30,24 36,14"/>
+              <line x1="2" y1="33" x2="38" y2="33"/>
+              <circle cx="20" cy="10" r="4"/>
+            </svg>
+          </div>
+          <h3>Private Beach</h3>
+          <p>Half a mile of secluded Atlantic shoreline — attended from morning beach setup through sunset cocktail service.</p>
+        </article>
+
+        <article class="hl-card reveal">
+          <div class="hl-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="20" cy="20" r="14"/>
+              <path d="M20,6 L20,11"/>
+              <path d="M20,29 L20,34"/>
+              <path d="M6,20 L11,20"/>
+              <path d="M29,20 L34,20"/>
+              <path d="M17,18 L20,20 L25,14"/>
+            </svg>
+          </div>
+          <h3>Golf Links</h3>
+          <p>An 18-hole championship course set against ocean views, with PGA instruction and a fully appointed clubhouse.</p>
+        </article>
+
+        <article class="hl-card reveal">
+          <div class="hl-card__icon" aria-hidden="true">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10,8 L10,32 L20,26 L30,32 L30,8 L20,14 Z"/>
+              <line x1="20" y1="14" x2="20" y2="26"/>
+            </svg>
+          </div>
+          <h3>Family Programs</h3>
+          <p>Pebbles Kids Club, teen adventures, and family suites ensure every generation creates memories worth keeping.</p>
+        </article>
+
+      </div>
     </div>
   </section>
 
-  <!-- Newsletter -->
-  <section class="newsletter-section">
-    <div class="newsletter-section__inner">
-      <h2>Stay in the loop.</h2>
-      <p>Receive exclusive offers, seasonal escapes, and insider news — straight to your inbox.</p>
-      <form class="newsletter-form" onsubmit="return false;">
-        <input type="email" placeholder="Your email address" aria-label="Email address">
-        <button type="submit" class="btn btn--gold">Subscribe</button>
+  <!-- ─── QUOTE ─────────────────────────────────────────────── -->
+  <section class="quote-band" aria-label="Press quote">
+    <div class="wrap quote-band__inner">
+      <blockquote>
+        <svg class="quote-band__mark" viewBox="0 0 48 36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M0,36 L0,18 Q0,0 18,0 L18,9 Q9,9 9,18 L18,18 L18,36 Z" fill="currentColor" opacity="0.18"/>
+          <path d="M26,36 L26,18 Q26,0 44,0 L44,9 Q35,9 35,18 L44,18 L44,36 Z" fill="currentColor" opacity="0.18"/>
+        </svg>
+        <p>"The Bellavera has, in our estimation, redefined what it means to offer genuine luxury by the sea — every detail considered, every guest remembered."</p>
+        <cite>— Meridian Select, Five-Star Award Citation</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ─── INSTAGRAM GRID ────────────────────────────────────── -->
+  <section class="gram" aria-labelledby="gram-heading">
+    <div class="gram__header">
+      <h2 id="gram-heading">Life at The Bellavera</h2>
+      <p><a href="#" aria-label="Follow us on Instagram">@bellavera_resort</a></p>
+    </div>
+    <div class="gram__grid" aria-label="Instagram gallery">
+      <a href="#" class="gram__cell" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80')" aria-label="Aerial view of the beach"></a>
+      <a href="#" class="gram__cell" style="background-image:url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600&q=80')" aria-label="Resort pool at sunset"></a>
+      <a href="#" class="gram__cell" style="background-image:url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&q=80')" aria-label="Spa relaxation area"></a>
+      <a href="#" class="gram__cell" style="background-image:url('https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&q=80')" aria-label="Dining at The Coral Room"></a>
+      <a href="#" class="gram__cell" style="background-image:url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=80')" aria-label="Private beach shoreline"></a>
+      <a href="#" class="gram__cell" style="background-image:url('https://images.unsplash.com/photo-1561501900-3701fa6a0864?w=600&q=80')" aria-label="Oceanview suite balcony"></a>
+    </div>
+  </section>
+
+  <!-- ─── NEWSLETTER ────────────────────────────────────────── -->
+  <section class="newsletter" aria-labelledby="nl-heading">
+    <div class="newsletter__img" style="background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=900&q=70')"
+         role="img" aria-label="Aerial view of The Bellavera resort"></div>
+    <div class="newsletter__body">
+      <p class="eyebrow eyebrow--gold">Stay Connected</p>
+      <h2 id="nl-heading">The Bellavera<br><em>Insider.</em></h2>
+      <p>Private offers, seasonal escapes, and resort news — delivered to those in the know.</p>
+      <form class="newsletter__form" id="newsletter-form" novalidate>
+        <div class="newsletter__field">
+          <label for="nl-email" class="visually-hidden">Your email address</label>
+          <input type="email" id="nl-email" name="email"
+                 placeholder="Your email address"
+                 autocomplete="email"
+                 required>
+          <button type="submit" class="btn btn--gold">Subscribe</button>
+        </div>
+        <p class="newsletter__note">No spam, ever. Unsubscribe any time.</p>
+        <p class="newsletter__success" id="nl-success" hidden>Thank you — you're on the list.</p>
       </form>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="site-footer__top">
-      <div class="site-footer__brand">
-        <div class="logo-lockup logo-lockup--footer">
-          <span class="logo-the">The</span>
-          <span class="logo-name">BELLAVERA</span>
-        </div>
-        <address>
-          12 Ocean Vista Drive<br>
-          Coral Bay, FL 33401<br>
-          <a href="tel:8882354100">888-235-4100</a>
-        </address>
-        <div class="social-links">
-          <a href="#" aria-label="Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a href="#" aria-label="Facebook">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-        </div>
-      </div>
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer class="site-footer" aria-label="Site footer">
+    <div class="site-footer__body">
+      <div class="wrap site-footer__grid">
 
-      <nav class="footer-nav">
-        <div class="footer-nav__col">
-          <h4>Stays</h4>
-          <a href="#">Oceanview Rooms</a>
-          <a href="#">Garden Suites</a>
-          <a href="#">The Crest Collection</a>
-          <a href="#">Accessible Rooms</a>
+        <div class="footer-brand">
+          <a href="index.html" aria-label="The Bellavera — Home">
+            <svg class="logo-svg logo-svg--footer" viewBox="0 0 240 82" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M52,18 C68,8 84,28 100,18 C116,8 132,28 148,18 C164,8 180,28 188,20"
+                    stroke="#b8902e" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              <text x="120" y="41" text-anchor="middle"
+                    font-family="'Cormorant Garamond', Georgia, serif"
+                    font-style="italic" font-size="15" letter-spacing="5" fill="white">The</text>
+              <text x="120" y="61" text-anchor="middle"
+                    font-family="'Jost', Arial, sans-serif"
+                    font-weight="600" font-size="22" letter-spacing="9" fill="white">BELLAVERA</text>
+              <line x1="36" y1="68" x2="204" y2="68" stroke="rgba(255,255,255,0.25)" stroke-width="0.5"/>
+              <text x="120" y="78" text-anchor="middle"
+                    font-family="'Jost', Arial, sans-serif"
+                    font-weight="400" font-size="7.5" letter-spacing="3" fill="rgba(255,255,255,0.45)">CORAL BAY · FLORIDA</text>
+            </svg>
+          </a>
+          <address>
+            12 Ocean Vista Drive<br>
+            Coral Bay, FL 33401<br>
+            <a href="tel:18882354100">+1 888-235-4100</a><br>
+            <a href="mailto:reservations@thebellavera.com">reservations@thebellavera.com</a>
+          </address>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.03-2.83l1.22-5.18s-.31-.63-.31-1.56c0-1.46.85-2.55 1.9-2.55.9 0 1.33.67 1.33 1.48 0 .9-.57 2.25-.87 3.5-.25 1.04.52 1.89 1.54 1.89 1.85 0 3.09-2.37 3.09-5.17 0-2.14-1.44-3.64-3.5-3.64-2.38 0-3.78 1.78-3.78 3.63 0 .72.28 1.49.62 1.91.07.08.08.16.06.24l-.23.95c-.04.15-.13.18-.29.11-1.08-.5-1.76-2.09-1.76-3.36 0-2.73 1.98-5.24 5.71-5.24 3 0 5.33 2.14 5.33 5 0 2.98-1.87 5.37-4.47 5.37-.87 0-1.69-.45-1.97-1l-.54 2.01c-.19.74-.72 1.67-1.07 2.23.81.25 1.66.38 2.54.38 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+            </a>
+          </div>
         </div>
-        <div class="footer-nav__col">
-          <h4>Experiences</h4>
-          <a href="#">Pools &amp; Private Beach</a>
-          <a href="#">Spa Bellavera</a>
-          <a href="#">Golf Club</a>
-          <a href="#">Tennis &amp; Padel</a>
-          <a href="#">Boutiques</a>
-        </div>
-        <div class="footer-nav__col">
-          <h4>Dining</h4>
-          <a href="#">Azure Grill</a>
-          <a href="#">The Coral Room</a>
-          <a href="#">Sirena Seafood</a>
-          <a href="#">The Oyster Deck</a>
-          <a href="#">Sunset Lounge</a>
-        </div>
-        <div class="footer-nav__col">
-          <h4>Gatherings</h4>
-          <a href="#">Conferences</a>
-          <a href="#">Weddings</a>
-          <a href="#">Private Celebrations</a>
-          <h4 style="margin-top: 1.5rem;">More</h4>
-          <a href="#">Seasonal Offers</a>
-          <a href="#">Gift Cards</a>
-          <a href="#">Press &amp; Media</a>
-          <a href="#">Careers</a>
-        </div>
-      </nav>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-col">
+            <h4>Stays</h4>
+            <a href="stays.html#oceanview">Oceanview Rooms</a>
+            <a href="stays.html#garden">Garden Suites</a>
+            <a href="stays.html#crest">The Crest Collection</a>
+            <a href="stays.html#accessible">Accessible Rooms</a>
+          </div>
+          <div class="footer-col">
+            <h4>Experiences</h4>
+            <a href="experiences.html#beach">Pools &amp; Beach</a>
+            <a href="experiences.html#spa">Spa Bellavera</a>
+            <a href="experiences.html#golf">Golf Links</a>
+            <a href="experiences.html#tennis">Tennis Pavilion</a>
+            <a href="experiences.html#boutiques">Boutiques</a>
+          </div>
+          <div class="footer-col">
+            <h4>Dining</h4>
+            <a href="dining.html#azure-grill">Azure Grill</a>
+            <a href="dining.html#coral-room">The Coral Room</a>
+            <a href="dining.html#sirena">Sirena Seafood</a>
+            <a href="dining.html#oyster-deck">The Oyster Deck</a>
+            <a href="dining.html#sunset-lounge">Sunset Lounge</a>
+          </div>
+          <div class="footer-col">
+            <h4>Gatherings</h4>
+            <a href="gatherings.html#conferences">Conferences</a>
+            <a href="gatherings.html#weddings">Weddings</a>
+            <a href="gatherings.html#private">Private Events</a>
+            <h4 style="margin-top:1.5rem">More</h4>
+            <a href="offers.html">Current Offers</a>
+            <a href="#">Gift Cards</a>
+            <a href="#">Press &amp; Media</a>
+            <a href="#">Careers</a>
+          </div>
+        </nav>
+
+      </div>
     </div>
 
     <div class="site-footer__bottom">
-      <p>&copy; 2024 The Bellavera Resort &amp; Spa, Inc. All rights reserved.</p>
-      <nav class="footer-legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Accessibility</a>
-        <a href="#">Sitemap</a>
-      </nav>
+      <div class="wrap site-footer__bottom-inner">
+        <p>&copy; 2026 The Bellavera Resort &amp; Spa, Inc. All rights reserved.</p>
+        <nav class="footer-legal" aria-label="Legal links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Sitemap</a>
+        </nav>
+      </div>
     </div>
   </footer>
 
