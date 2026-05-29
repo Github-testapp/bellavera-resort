@@ -623,6 +623,148 @@
 .gallery-item:hover .gallery-item__overlay { background: rgba(27,46,75,0.25); }
 .gallery-item[hidden] { display: none; }
 
+/* ── OUR STORY PAGE ──────────────────────────────────────── */
+.story-section { padding: 88px 0; background: var(--cream); }
+.story-section__inner { max-width: 1160px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center; }
+.story-section__text h2 { font-family: var(--font-serif); font-size: clamp(28px,3vw,44px); font-weight: 300; line-height: 1.25; margin-bottom: 20px; }
+.story-section__text h2 em { font-style: italic; }
+.story-section__text p { font-size: 15.5px; font-weight: 300; line-height: 1.88; color: var(--muted); margin-bottom: 16px; }
+.story-section__img { background-size: cover; background-position: center; min-height: 460px; }
+.story-section--flip .story-section__text { order: 2; }
+.story-section--flip .story-section__img { order: 1; }
+.story-section--white { background: var(--white); }
+
+.story-values-band { background: var(--navy); padding: 88px 0; text-align: center; }
+.story-values-band h2 { font-family: var(--font-serif); font-size: clamp(28px,3.5vw,48px); font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 14px; }
+.story-values-band h2 em { font-style: italic; }
+.story-values-band > .wrap > p { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.52); max-width: 560px; margin: 0 auto 56px; line-height: 1.85; }
+.story-values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 48px; }
+.story-value__mark { font-size: 26px; color: var(--gold-lt); display: block; margin-bottom: 14px; }
+.story-value h3 { font-family: var(--font-serif); font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 10px; }
+.story-value p { font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.75; }
+
+/* ── MEMBERSHIP TIERS ────────────────────────────────────── */
+.tier-section { padding: 80px 0; background: var(--white); }
+.tier-grid { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--cream-dk); }
+.tier-card { padding: 48px 40px; border-right: 1px solid var(--cream-dk); }
+.tier-card:last-child { border-right: none; }
+.tier-card--mid { background: var(--cream); }
+.tier-card--top { background: var(--navy); }
+.tier-mark { font-size: 24px; color: var(--gold); display: block; margin-bottom: 16px; }
+.tier-name { font-family: var(--font-serif); font-size: 28px; font-weight: 300; color: var(--text); margin-bottom: 6px; }
+.tier-card--top .tier-name { color: var(--white); }
+.tier-price { font-size: 12px; color: var(--muted); margin-bottom: 26px; letter-spacing: .3px; }
+.tier-card--top .tier-price { color: rgba(255,255,255,0.45); }
+.tier-divider { height: 1px; background: var(--cream-dk); margin-bottom: 26px; }
+.tier-card--top .tier-divider { background: rgba(255,255,255,0.12); }
+.tier-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+.tier-list li { font-size: 13.5px; font-weight: 300; color: var(--muted); padding-left: 20px; position: relative; line-height: 1.55; }
+.tier-list li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-size: 11px; font-weight: 600; top: 2px; }
+.tier-card--top .tier-list li { color: rgba(255,255,255,0.6); }
+
+/* ── GIFT CARDS ──────────────────────────────────────────── */
+.gc-section { display: grid; grid-template-columns: 1fr 1fr; }
+.gc-image { background-size: cover; background-position: center; min-height: 600px; }
+.gc-body { background: var(--cream); padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; }
+.gc-body h2 { font-family: var(--font-serif); font-size: clamp(26px,3vw,40px); font-weight: 300; color: var(--text); margin-bottom: 14px; }
+.gc-body h2 em { font-style: italic; }
+.gc-body > p { font-size: 15px; font-weight: 300; color: var(--muted); margin-bottom: 32px; line-height: 1.8; }
+.gc-amounts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.gc-amount-btn { padding: 12px 22px; border: 1px solid var(--cream-dk); background: var(--white); font-family: var(--font-sans); font-size: 15px; font-weight: 400; color: var(--text); cursor: pointer; transition: background .2s,border-color .2s,color .2s; }
+.gc-amount-btn.active, .gc-amount-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.gc-form { display: flex; flex-direction: column; gap: 14px; }
+.gc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.gc-field { display: flex; flex-direction: column; gap: 6px; }
+.gc-field label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--navy); }
+.gc-field input { padding: 12px 16px; border: 1px solid #ddd; background: var(--white); font-family: var(--font-sans); font-size: 13.5px; font-weight: 300; color: var(--text); outline: none; border-radius: 0; transition: border-color .2s; -webkit-appearance: none; }
+.gc-field input:focus { border-color: var(--navy); }
+.gc-note { font-size: 11px; color: var(--muted); line-height: 1.65; margin-top: 4px; }
+.gc-success { text-align: center; padding: 32px 0; }
+.gc-success h3 { font-family: var(--font-serif); font-size: 26px; font-weight: 300; margin-bottom: 10px; }
+.gc-success p { font-size: 14px; color: var(--muted); }
+
+/* ── CONTACT PAGE ────────────────────────────────────────── */
+.contact-section { display: grid; grid-template-columns: 1fr 1.4fr; }
+.contact-info-panel { background: var(--navy); padding: 72px 60px; }
+.contact-info-panel h2 { font-family: var(--font-serif); font-size: clamp(24px,3vw,38px); font-weight: 300; color: var(--white); margin-bottom: 14px; line-height: 1.25; }
+.contact-info-panel h2 em { font-style: italic; }
+.contact-info-panel > p { font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.52); margin-bottom: 48px; line-height: 1.8; }
+.contact-dept-list { display: flex; flex-direction: column; gap: 28px; }
+.contact-dept { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 22px; }
+.contact-dept h4 { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-lt); margin-bottom: 8px; }
+.contact-dept a { display: block; font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.62); margin-bottom: 3px; transition: color .2s; }
+.contact-dept a:hover { color: var(--white); }
+.contact-address { font-size: 13.5px; font-weight: 300; line-height: 2; color: rgba(255,255,255,0.45); margin-top: 40px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); }
+.contact-form-panel { background: var(--cream); padding: 72px 60px; }
+.contact-form-panel h3 { font-family: var(--font-serif); font-size: 28px; font-weight: 300; color: var(--text); margin-bottom: 32px; }
+.cf-form { display: flex; flex-direction: column; gap: 18px; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.cf-field { display: flex; flex-direction: column; gap: 7px; }
+.cf-field label { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--navy); }
+.cf-field input, .cf-field select, .cf-field textarea { padding: 13px 16px; border: 1px solid #ddd; background: var(--white); font-family: var(--font-sans); font-size: 13.5px; font-weight: 300; color: var(--text); outline: none; border-radius: 0; transition: border-color .2s; -webkit-appearance: none; appearance: none; }
+.cf-field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%23636363' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-color: var(--white); padding-right: 36px; }
+.cf-field input:focus, .cf-field select:focus, .cf-field textarea:focus { border-color: var(--navy); }
+.cf-field.cf-error input, .cf-field.cf-error select, .cf-field.cf-error textarea { border-color: #c0392b; }
+.cf-field textarea { resize: vertical; min-height: 120px; }
+.cf-submit { width: 100%; padding: 15px; margin-top: 6px; font-size: 12px; letter-spacing: 3px; }
+.cf-success { text-align: center; padding: 40px 0; }
+.cf-success__icon { font-size: 28px; color: var(--gold); display: block; margin-bottom: 16px; }
+.cf-success h3 { font-family: var(--font-serif); font-size: 26px; font-weight: 300; margin-bottom: 10px; }
+.cf-success p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+
+/* ── CAREERS PAGE ────────────────────────────────────────── */
+.careers-culture { background: var(--navy); padding: 88px 0; text-align: center; }
+.careers-culture h2 { font-family: var(--font-serif); font-size: clamp(28px,3.5vw,52px); font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 14px; max-width: 680px; margin-left: auto; margin-right: auto; }
+.careers-culture h2 em { font-style: italic; }
+.careers-culture > .wrap > p { font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.52); max-width: 540px; margin: 0 auto 56px; line-height: 1.85; }
+.culture-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
+.culture-mark { font-size: 24px; color: var(--gold-lt); display: block; margin-bottom: 14px; }
+.culture-item h3 { font-family: var(--font-serif); font-size: 22px; font-weight: 400; color: var(--white); margin-bottom: 10px; }
+.culture-item p { font-size: 13.5px; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.75; }
+.jobs-section { padding: 80px 0; background: var(--cream); }
+.jobs-section > .wrap > h2 { font-family: var(--font-serif); font-size: clamp(26px,3vw,40px); font-weight: 300; margin-bottom: 56px; text-align: center; }
+.job-dept { max-width: 860px; margin: 0 auto 48px; }
+.job-dept__title { font-size: 10px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); padding-bottom: 14px; border-bottom: 1px solid var(--cream-dk); display: block; }
+.job-item { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--cream-dk); }
+.job-item:last-child { border-bottom: none; }
+.job-title { font-size: 15.5px; font-weight: 400; color: var(--text); }
+.job-meta { font-size: 12px; font-weight: 300; color: var(--muted); margin-top: 4px; }
+.job-type { display: inline-block; font-size: 9.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; background: var(--cream-dk); color: var(--navy); padding: 4px 10px; white-space: nowrap; flex-shrink: 0; }
+.careers-benefits { padding: 72px 0; background: var(--white); }
+.careers-benefits > .wrap > h2 { font-family: var(--font-serif); font-size: clamp(24px,2.5vw,36px); font-weight: 300; text-align: center; margin-bottom: 48px; }
+.benefits-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; text-align: center; }
+.benefit-item__icon { font-size: 22px; color: var(--gold); margin-bottom: 14px; }
+.benefit-item h4 { font-family: var(--font-serif); font-size: 17px; font-weight: 400; margin-bottom: 8px; }
+.benefit-item p { font-size: 13px; font-weight: 300; color: var(--muted); line-height: 1.65; }
+
+/* ── RESPONSIVE (new pages) ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .story-section__inner { grid-template-columns: 1fr; gap: 40px; }
+  .story-section--flip .story-section__text { order: unset; }
+  .story-section--flip .story-section__img { order: unset; }
+  .contact-section { grid-template-columns: 1fr; }
+  .gc-section { grid-template-columns: 1fr; }
+  .gc-image { min-height: 320px; }
+  .tier-grid { grid-template-columns: 1fr; }
+  .tier-card { border-right: none; border-bottom: 1px solid var(--cream-dk); }
+  .tier-card:last-child { border-bottom: none; }
+  .story-values-grid { grid-template-columns: 1fr; gap: 32px; }
+  .culture-grid { grid-template-columns: 1fr; gap: 24px; }
+  .benefits-grid { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 768px) {
+  .contact-info-panel { padding: 48px 28px; }
+  .contact-form-panel { padding: 48px 28px; }
+  .gc-body { padding: 48px 28px; }
+  .cf-row { grid-template-columns: 1fr; }
+  .gc-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .benefits-grid { grid-template-columns: 1fr 1fr; }
+  .job-item { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .story-section__inner { padding: 0 20px; }
+}
+
 /* ── RESPONSIVE (pages) ──────────────────────────────────── */
 @media (max-width: 1024px) {
   .rooms-grid { grid-template-columns: repeat(2, 1fr); }
