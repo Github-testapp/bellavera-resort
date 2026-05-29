@@ -118,6 +118,13 @@ address { font-style: normal; }
 }
 .btn--outline-white:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
 
+.btn--outline-nav {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.btn--outline-nav:hover { background: var(--navy); color: var(--white); }
+
 /* ── GOLD BRAND LINE ─────────────────────────────────────── */
 .brand-line {
   height: 3px;
@@ -1034,7 +1041,7 @@ address { font-style: normal; }
 
 /* ── PAGE ENTRY ANIMATION ─────────────────────────────────── */
 @keyframes bvEntry { from { opacity: 0; } to { opacity: 1; } }
-body { animation: bvEntry .32s ease both; }
+body { animation: bvEntry .18s ease both; }
 
 /* ── SCROLL PROGRESS BAR ──────────────────────────────────── */
 .scroll-progress {
@@ -1103,7 +1110,7 @@ body { animation: bvEntry .32s ease both; }
 }
 .locale-btn:hover { color: var(--white); }
 .locale-btn svg { width: 9px; height: 9px; transition: transform .2s; }
-.locale-selector:hover .locale-btn svg { transform: rotate(180deg); }
+.locale-selector.locale-open .locale-btn svg { transform: rotate(180deg); }
 .locale-dropdown {
   position: absolute; top: calc(100% + 10px); left: 50%;
   transform: translateX(-50%) translateY(4px);
@@ -1111,7 +1118,7 @@ body { animation: bvEntry .32s ease both; }
   min-width: 76px; padding: 6px 0; z-index: 300;
   opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s, transform .2s;
 }
-.locale-selector:hover .locale-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.locale-selector.locale-open .locale-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 .locale-dropdown button {
   display: block; width: 100%; background: none; border: none;
   font-family: var(--font-sans); font-size: 11px; font-weight: 300;

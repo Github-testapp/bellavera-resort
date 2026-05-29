@@ -449,8 +449,9 @@
           (link.classList.contains('btn--outline-white') && link.closest('.hero__cta-group'))) return;
       e.preventDefault();
       var dest = href;
-      document.body.style.cssText += ';opacity:0!important;transition:opacity .25s!important';
-      setTimeout(function () { window.location.href = dest; }, 260);
+      document.body.style.transition = 'opacity .12s';
+      document.body.style.opacity = '0';
+      setTimeout(function () { window.location.href = dest; }, 130);
     });
   })();
 
@@ -476,29 +477,68 @@
   (function () {
     var phone = document.querySelector('.utility-phone');
     if (!phone) return;
+    var openSel = null;
+
     function buildSel(label, opts) {
       var sel = document.createElement('div');
       sel.className = 'locale-selector';
       sel.innerHTML =
-        '<button class="locale-btn" aria-haspopup="true">' + label +
+        '<button class="locale-btn" aria-haspopup="listbox" aria-expanded="false">' +
+        '<span class="locale-label">' + label + '</span>' +
         ' <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><polyline points="1 1 5 5 9 1"/></svg></button>' +
-        '<div class="locale-dropdown">' +
-        opts.map(function (o, i) { return '<button class="' + (i===0?'lc-on':'') + '" data-v="' + o + '">' + o + '</button>'; }).join('') +
+        '<div class="locale-dropdown" role="listbox">' +
+        opts.map(function (o, i) { return '<button class="' + (i === 0 ? 'lc-on' : '') + '" data-v="' + o + '" role="option">' + o + '</button>'; }).join('') +
         '</div>';
-      var btn = sel.querySelector('.locale-btn');
-      sel.querySelectorAll('.locale-dropdown button').forEach(function (ob) {
-        ob.addEventListener('click', function () {
-          sel.querySelectorAll('button').forEach(function (x) { x.classList.remove('lc-on'); });
+
+      var btn    = sel.querySelector('.locale-btn');
+      var lbl    = sel.querySelector('.locale-label');
+      var ddBtns = Array.from(sel.querySelectorAll('.locale-dropdown button'));
+
+      function open() {
+        if (openSel && openSel !== sel) closeAll();
+        sel.classList.add('locale-open');
+        btn.setAttribute('aria-expanded', 'true');
+        openSel = sel;
+      }
+      function close() {
+        sel.classList.remove('locale-open');
+        btn.setAttribute('aria-expanded', 'false');
+        if (openSel === sel) openSel = null;
+      }
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        sel.classList.contains('locale-open') ? close() : open();
+      });
+
+      ddBtns.forEach(function (ob) {
+        ob.addEventListener('click', function (e) {
+          e.stopPropagation();
+          ddBtns.forEach(function (x) { x.classList.remove('lc-on'); });
           ob.classList.add('lc-on');
-          btn.firstChild.textContent = ob.dataset.v + ' ';
+          lbl.textContent = ob.dataset.v;
+          close();
         });
       });
+
       return sel;
     }
+
+    function closeAll() {
+      document.querySelectorAll('.locale-selector.locale-open').forEach(function (s) {
+        s.classList.remove('locale-open');
+        var b = s.querySelector('.locale-btn');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      openSel = null;
+    }
+
+    document.addEventListener('click', function () { closeAll(); });
+
     var wrap = document.createElement('div');
     wrap.className = 'locale-wrap';
-    wrap.appendChild(buildSel('EN', ['EN','日本語','中文','Español']));
-    wrap.appendChild(buildSel('USD', ['USD','EUR','GBP','JPY']));
+    wrap.appendChild(buildSel('EN', ['EN', '日本語', '中文', 'Español']));
+    wrap.appendChild(buildSel('USD', ['USD', 'EUR', 'GBP', 'JPY']));
     phone.insertAdjacentElement('beforebegin', wrap);
   })();
 
@@ -514,7 +554,7 @@
   /* ── DINING RESERVATION MODAL ────────────────────────────── */
   (function () {
     if (!document.querySelector('[data-dine]')) return;
-    var TIMES = ['12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM','8:00 PM','8:30 PM','9:00 PM','9:30 PM','10:00 PM'];
+    var TIMES = ['11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','4:00 PM','4:30 PM','5:00 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM','8:00 PM','8:30 PM','9:00 PM','9:30 PM','10:00 PM','10:30 PM','11:00 PM'];
     var tOpts = TIMES.map(function (t) { return '<option>' + t + '</option>'; }).join('');
     document.body.insertAdjacentHTML('beforeend',
       '<div class="dm-overlay" id="dm-overlay" role="dialog" aria-modal="true" aria-labelledby="dm-heading" hidden>' +
