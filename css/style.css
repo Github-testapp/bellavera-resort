@@ -1102,37 +1102,7 @@ body { animation: bvEntry .5s ease both; }
   color: rgba(255,255,255,0.42); margin-right: 16px; white-space: nowrap;
 }
 
-/* ── LOCALE SELECTOR ──────────────────────────────────────── */
-.locale-wrap { display: flex; align-items: center; gap: 8px; margin-right: 16px; }
-.locale-selector { position: relative; }
-.locale-btn {
-  background: none; border: none;
-  font-family: var(--font-sans); font-size: 10px; font-weight: 600;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  color: rgba(255,255,255,0.48); cursor: pointer;
-  display: flex; align-items: center; gap: 3px; transition: color .2s; padding: 0;
-}
-.locale-btn:hover { color: var(--white); }
-.locale-btn svg { width: 9px; height: 9px; transition: transform .2s; }
-.locale-selector.locale-open .locale-btn svg { transform: rotate(180deg); }
-.locale-dropdown {
-  position: absolute; top: calc(100% + 10px); left: 50%;
-  transform: translateX(-50%) translateY(4px);
-  background: var(--navy-deep); border: 1px solid rgba(255,255,255,0.12);
-  min-width: 76px; padding: 6px 0; z-index: 9999;
-  opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s, transform .2s;
-  pointer-events: none;
-}
-.locale-selector.locale-open .locale-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
-.locale-dropdown button {
-  display: block; width: 100%; background: none; border: none;
-  font-family: var(--font-sans); font-size: 11px; font-weight: 300;
-  color: rgba(255,255,255,0.48); cursor: pointer;
-  padding: 6px 14px; text-align: left; transition: color .18s, background .18s;
-}
-.locale-dropdown button:hover { color: var(--white); background: rgba(255,255,255,0.05); }
-.locale-dropdown button.lc-on { color: var(--gold-lt); }
-@media (max-width: 900px) { .locale-wrap, .weather-widget { display: none; } }
+@media (max-width: 900px) { .weather-widget { display: none; } }
 
 /* ── PRINT STYLES ─────────────────────────────────────────── */
 @media print {

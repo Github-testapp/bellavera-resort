@@ -518,69 +518,6 @@
       .catch(function () {});
   })();
 
-  /* ── LOCALE / CURRENCY SELECTOR ─────────────────────────── */
-  (function () {
-    var phone = document.querySelector('.utility-phone');
-    if (!phone) return;
-
-    function closeAll() {
-      document.querySelectorAll('.locale-selector.locale-open').forEach(function (s) {
-        s.classList.remove('locale-open');
-        var b = s.querySelector('.locale-btn');
-        if (b) b.setAttribute('aria-expanded', 'false');
-      });
-    }
-
-    function buildSel(label, opts) {
-      var sel = document.createElement('div');
-      sel.className = 'locale-selector';
-      sel.innerHTML =
-        '<button class="locale-btn" aria-haspopup="listbox" aria-expanded="false">' +
-        '<span class="locale-label">' + label + '</span>' +
-        '<svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><polyline points="1 1 5 5 9 1"/></svg></button>' +
-        '<div class="locale-dropdown" role="listbox">' +
-        opts.map(function (o, i) {
-          return '<button class="' + (i === 0 ? 'lc-on' : '') + '" data-v="' + o + '" role="option">' + o + '</button>';
-        }).join('') +
-        '</div>';
-
-      var btn    = sel.querySelector('.locale-btn');
-      var lbl    = sel.querySelector('.locale-label');
-      var ddBtns = Array.from(sel.querySelectorAll('.locale-dropdown button'));
-
-      btn.addEventListener('click', function () {
-        var isOpen = sel.classList.contains('locale-open');
-        closeAll();
-        if (!isOpen) {
-          sel.classList.add('locale-open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-
-      ddBtns.forEach(function (ob) {
-        ob.addEventListener('click', function () {
-          ddBtns.forEach(function (x) { x.classList.remove('lc-on'); });
-          ob.classList.add('lc-on');
-          lbl.textContent = ob.dataset.v;
-          sel.classList.remove('locale-open');
-          btn.setAttribute('aria-expanded', 'false');
-        });
-      });
-
-      return sel;
-    }
-
-    /* Close on outside click — checked via closest, no stopPropagation needed */
-    document.addEventListener('click', function (e) {
-      if (!e.target.closest('.locale-wrap')) closeAll();
-    });
-
-    var wrap = document.createElement('div');
-    wrap.className = 'locale-wrap';
-    wrap.appendChild(buildSel('EN', ['EN', '日本語', '中文', 'Español']));
-    wrap.appendChild(buildSel('USD', ['USD', 'EUR', 'GBP', 'JPY']));
-    phone.insertAdjacentElement('beforebegin', wrap);
-  })();
 
   /* ── FOOTER LEGAL LINK FIX ───────────────────────────────── */
   (function () {
