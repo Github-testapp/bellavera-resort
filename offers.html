@@ -71,7 +71,7 @@
     <div class="wrap">
       <div class="offers-grid">
 
-        <a href="#" class="offer-card reveal">
+        <a href="#" class="offer-card reveal" data-expires="2026-09-30">
           <div class="offer-card__img" style="background-image:url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80')"></div>
           <div class="offer-card__body">
             <span class="offer-card__tag">Summer · Limited</span>
@@ -88,7 +88,7 @@
           </div>
         </a>
 
-        <a href="#" class="offer-card reveal">
+        <a href="#" class="offer-card reveal" data-expires="2026-12-31">
           <div class="offer-card__img" style="background-image:url('https://images.unsplash.com/photo-1540541338287-41700207dee6?w=800&q=80')"></div>
           <div class="offer-card__body">
             <span class="offer-card__tag">Wellness</span>
@@ -105,7 +105,7 @@
           </div>
         </a>
 
-        <a href="#" class="offer-card reveal">
+        <a href="#" class="offer-card reveal" data-expires="2026-10-31">
           <div class="offer-card__img" style="background-image:url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&q=80')"></div>
           <div class="offer-card__body">
             <span class="offer-card__tag">Golf</span>
@@ -122,7 +122,7 @@
           </div>
         </a>
 
-        <a href="#" class="offer-card reveal">
+        <a href="#" class="offer-card reveal" data-expires="2026-12-31">
           <div class="offer-card__img" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80')"></div>
           <div class="offer-card__body">
             <span class="offer-card__tag">Weekend</span>
@@ -176,5 +176,27 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    document.querySelectorAll('.offer-card[data-expires]').forEach(function (card) {
+      var exp  = new Date(card.dataset.expires + 'T23:59:59');
+      var now  = new Date();
+      var days = Math.ceil((exp - now) / 86400000);
+      var body = card.querySelector('.offer-card__body');
+      if (!body) return;
+      var el = document.createElement('p');
+      el.className = 'offer-countdown';
+      if (days <= 0) {
+        el.classList.add('oc-expired');
+        el.innerHTML = '<span class="offer-countdown__dot"></span>Offer ended';
+      } else if (days <= 14) {
+        el.classList.add('oc-urgent');
+        el.innerHTML = '<span class="offer-countdown__dot"></span>Ends in ' + days + (days === 1 ? ' day' : ' days');
+      } else {
+        el.innerHTML = '<span class="offer-countdown__dot"></span>Available for ' + days + ' more days';
+      }
+      var from = body.querySelector('.offer-card__from');
+      if (from) from.insertAdjacentElement('afterend', el);
+    });
+  </script>
 </body>
 </html>

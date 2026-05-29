@@ -54,11 +54,11 @@
 
   <!-- Filter Buttons -->
   <div class="gallery-filters" role="group" aria-label="Filter gallery by category">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="stays">Stays</button>
-    <button class="filter-btn" data-filter="dining">Dining</button>
-    <button class="filter-btn" data-filter="experiences">Experiences</button>
-    <button class="filter-btn" data-filter="gatherings">Gatherings</button>
+    <button class="filter-btn active" data-filter="all">All <span class="filter-count"></span></button>
+    <button class="filter-btn" data-filter="stays">Stays <span class="filter-count"></span></button>
+    <button class="filter-btn" data-filter="dining">Dining <span class="filter-count"></span></button>
+    <button class="filter-btn" data-filter="experiences">Experiences <span class="filter-count"></span></button>
+    <button class="filter-btn" data-filter="gatherings">Gatherings <span class="filter-count"></span></button>
   </div>
 
   <!-- Gallery Grid -->
@@ -182,26 +182,171 @@
     <div class="site-footer__bottom"><div class="wrap site-footer__bottom-inner"><p>&copy; 2026 The Bellavera Resort &amp; Spa, Inc. All rights reserved.</p><nav class="footer-legal"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Accessibility</a><a href="#">Sitemap</a></nav></div></div>
   </footer>
 
+  <!-- Lightbox -->
+  <div class="lb-overlay" id="lb-overlay" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+    <button class="lb-close" id="lb-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <button class="lb-nav lb-prev" id="lb-prev" aria-label="Previous photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="lb-nav lb-next" id="lb-next" aria-label="Next photo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+    <div class="lb-img-wrap">
+      <img class="lb-img" id="lb-img" src="" alt="">
+    </div>
+    <div class="lb-footer">
+      <p class="lb-caption" id="lb-caption"></p>
+      <div class="lb-meta">
+        <span class="lb-counter" id="lb-counter"></span>
+        <div class="lb-actions">
+          <button class="lb-action" id="lb-open" aria-label="Open full size" title="Open full size">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </button>
+          <button class="lb-action" id="lb-share" aria-label="Share" title="Share">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
   <script>
-    // Gallery Filter
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    (function () {
+      var filterBtns  = Array.from(document.querySelectorAll('.filter-btn'));
+      var allItems    = Array.from(document.querySelectorAll('.gallery-item'));
+      var lbOverlay   = document.getElementById('lb-overlay');
+      var lbImg       = document.getElementById('lb-img');
+      var lbCaption   = document.getElementById('lb-caption');
+      var lbCounter   = document.getElementById('lb-counter');
+      var lbPrev      = document.getElementById('lb-prev');
+      var lbNext      = document.getElementById('lb-next');
+      var lbClose     = document.getElementById('lb-close');
+      var lbOpen      = document.getElementById('lb-open');
+      var lbShare     = document.getElementById('lb-share');
+      var currentFilter = 'all';
+      var currentIdx  = 0;
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        galleryItems.forEach(item => {
-          if (filter === 'all' || item.dataset.cat === filter) {
-            item.removeAttribute('hidden');
-          } else {
-            item.setAttribute('hidden', '');
-          }
+      // ── COUNT BADGES ──────────────────────────────────────
+      function updateCounts() {
+        filterBtns.forEach(function (btn) {
+          var f = btn.dataset.filter;
+          var n = f === 'all' ? allItems.length : allItems.filter(function (i) { return i.dataset.cat === f; }).length;
+          var badge = btn.querySelector('.filter-count');
+          if (badge) badge.textContent = n;
+        });
+      }
+      updateCounts();
+
+      // ── FILTER ────────────────────────────────────────────
+      function visibleItems() {
+        return allItems.filter(function (i) { return !i.hasAttribute('hidden'); });
+      }
+
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var f = btn.dataset.filter;
+          if (f === currentFilter) return;
+          currentFilter = f;
+          filterBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+
+          var grid = document.getElementById('gallery-grid');
+          grid.style.opacity = '0';
+          grid.style.transition = 'opacity .22s';
+
+          setTimeout(function () {
+            allItems.forEach(function (item) {
+              var show = f === 'all' || item.dataset.cat === f;
+              if (show) item.removeAttribute('hidden');
+              else item.setAttribute('hidden', '');
+            });
+            grid.style.opacity = '1';
+          }, 220);
         });
       });
-    });
+
+      // ── LIGHTBOX OPEN ─────────────────────────────────────
+      function openLB(idx) {
+        var items = visibleItems();
+        if (!items.length) return;
+        currentIdx = Math.max(0, Math.min(idx, items.length - 1));
+        var item = items[currentIdx];
+        var img  = item.querySelector('img');
+        lbImg.classList.remove('lb-loaded');
+        lbImg.src = img.src.replace(/w=700/, 'w=1400').replace(/q=80/, 'q=90');
+        lbImg.alt = img.alt;
+        lbCaption.textContent = img.alt;
+        lbCounter.textContent = (currentIdx + 1) + ' / ' + items.length;
+        lbPrev.style.display = items.length > 1 ? '' : 'none';
+        lbNext.style.display = items.length > 1 ? '' : 'none';
+        lbOverlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(function () { requestAnimationFrame(function () { lbOverlay.classList.add('lb-open'); }); });
+        lbImg.onload = function () { lbImg.classList.add('lb-loaded'); };
+        if (lbImg.complete) lbImg.classList.add('lb-loaded');
+      }
+
+      function closeLB() {
+        lbOverlay.classList.remove('lb-open');
+        setTimeout(function () { lbOverlay.hidden = true; document.body.style.overflow = ''; }, 300);
+      }
+
+      function navigate(dir) {
+        var items = visibleItems();
+        currentIdx = (currentIdx + dir + items.length) % items.length;
+        openLB(currentIdx);
+      }
+
+      // ── CLICK HANDLERS ────────────────────────────────────
+      allItems.forEach(function (item, i) {
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', function () {
+          var vis = visibleItems();
+          var idx = vis.indexOf(item);
+          if (idx >= 0) openLB(idx);
+        });
+      });
+
+      lbClose.addEventListener('click', closeLB);
+      lbPrev.addEventListener('click', function () { navigate(-1); });
+      lbNext.addEventListener('click', function () { navigate(1); });
+      lbOverlay.addEventListener('click', function (e) { if (e.target === lbOverlay) closeLB(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (lbOverlay.hidden) return;
+        if (e.key === 'Escape') closeLB();
+        if (e.key === 'ArrowLeft') navigate(-1);
+        if (e.key === 'ArrowRight') navigate(1);
+      });
+
+      lbOpen.addEventListener('click', function () {
+        window.open(lbImg.src, '_blank', 'noopener');
+      });
+
+      lbShare.addEventListener('click', function () {
+        var url = lbImg.src;
+        var caption = lbCaption.textContent;
+        if (navigator.share) {
+          navigator.share({ title: caption, url: url }).catch(function () {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(function () {
+            lbShare.title = 'Link copied!';
+            setTimeout(function () { lbShare.title = 'Share'; }, 2000);
+          }).catch(function () {});
+        }
+      });
+
+      // ── TOUCH SWIPE ───────────────────────────────────────
+      var touchStartX = 0;
+      lbOverlay.addEventListener('touchstart', function (e) { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+      lbOverlay.addEventListener('touchend', function (e) {
+        var dx = e.changedTouches[0].clientX - touchStartX;
+        if (Math.abs(dx) > 50) navigate(dx < 0 ? 1 : -1);
+      });
+    })();
   </script>
 </body>
 </html>

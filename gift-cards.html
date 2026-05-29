@@ -89,20 +89,20 @@
             </div>
           </div>
           <div class="gc-field">
-            <label for="gc-message">Personal Message <span style="font-weight:300;text-transform:none;letter-spacing:0;font-size:10px;color:var(--muted)">(optional)</span></label>
+            <label for="gc-message">Personal Message <span class="form-optional">(optional)</span></label>
             <input type="text" id="gc-message" name="message" placeholder="Add a personal note…" maxlength="120">
           </div>
           <div id="gc-custom-field" class="gc-field" style="display:none">
             <label for="gc-custom">Custom Amount (USD)</label>
             <input type="number" id="gc-custom" name="custom" placeholder="Enter amount" min="50" max="10000">
           </div>
-          <button type="submit" class="btn btn--navy" style="padding:15px 32px;font-size:12px;letter-spacing:3px;margin-top:6px">Purchase Gift Card</button>
+          <button type="submit" class="btn btn--navy btn--full">Purchase Gift Card</button>
           <p class="gc-note">Gift cards are delivered by email within 24 hours. Physical card delivery available — please allow 5–7 business days. Cards do not expire and cannot be exchanged for cash.</p>
         </form>
         <div class="gc-success" id="gc-success" hidden>
-          <span style="font-size:32px;color:var(--gold);display:block;margin-bottom:18px">✦</span>
+          <span class="gc-success__icon">✦</span>
           <h3>Gift Card Ordered</h3>
-          <p id="gc-success-msg" style="font-size:14px;color:var(--muted);margin-top:8px;line-height:1.75"></p>
+          <p id="gc-success-msg"></p>
         </div>
       </div>
     </div>
@@ -161,24 +161,38 @@
     });
 
     // Form submit
+    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     document.getElementById('gc-form').addEventListener('submit', function(e) {
       e.preventDefault();
+      var checks = [
+        { id: 'gcf-sender',    val: function() { return document.getElementById('gc-sender').value.trim(); } },
+        { id: 'gcf-email',     val: function() { return document.getElementById('gc-email').value.trim(); }, email: true },
+        { id: 'gcf-recipient', val: function() { return document.getElementById('gc-recipient').value.trim(); } },
+        { id: 'gcf-remail',    val: function() { return document.getElementById('gc-remail').value.trim(); }, email: true },
+      ];
       var ok = true;
-      var fields = ['gcf-sender','gcf-email','gcf-recipient','gcf-remail'];
-      fields.forEach(function(id) {
-        var wrap = document.getElementById(id);
-        var inp = wrap ? wrap.querySelector('input') : null;
-        if (!inp || !inp.value.trim()) { if (wrap) wrap.style.outline = '1px solid #c0392b'; ok = false; }
-        else { if (wrap) wrap.style.outline = ''; }
+      checks.forEach(function(f) {
+        var v    = f.val();
+        var bad  = !v || (f.email && !emailRe.test(v));
+        var wrap = document.getElementById(f.id);
+        if (wrap) wrap.classList.toggle('gc-error', bad);
+        if (bad) ok = false;
       });
       if (!ok) return;
       var recipient = document.getElementById('gc-recipient').value.trim();
-      var sender = document.getElementById('gc-sender').value.trim();
       var amt = selectedAmount || parseInt(document.getElementById('gc-custom').value) || 0;
       document.getElementById('gc-success-msg').textContent =
         'Your $' + amt + ' gift card for ' + recipient + ' has been ordered. A confirmation and the gift card will be sent to ' + document.getElementById('gc-email').value.trim() + ' within 24 hours.';
       document.getElementById('gc-form').hidden = true;
       document.getElementById('gc-success').hidden = false;
+    });
+    // Clear errors on input
+    ['gc-sender','gc-email','gc-recipient','gc-remail'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', function() {
+        var wrap = el.closest('.gc-field');
+        if (wrap) wrap.classList.remove('gc-error');
+      });
     });
   </script>
 </body>
