@@ -30,6 +30,9 @@
 /* ── RESET ───────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+/* ── ANCHOR OFFSET (fixed header compensation) ───────────── */
+[id] { scroll-margin-top: calc(var(--bar-h) + var(--hdr-h) + 3px + 24px); }
 body {
   font-family: var(--font-sans);
   font-weight: 300;
@@ -145,6 +148,7 @@ address { font-style: normal; }
   left: 0;
   width: 100%;
   z-index: 100;
+  overflow: visible;
 }
 .utility-bar__inner {
   height: 100%;
@@ -1041,7 +1045,7 @@ address { font-style: normal; }
 
 /* ── PAGE ENTRY ANIMATION ─────────────────────────────────── */
 @keyframes bvEntry { from { opacity: 0; } to { opacity: 1; } }
-body { animation: bvEntry .18s ease both; }
+body { animation: bvEntry .5s ease both; }
 
 /* ── SCROLL PROGRESS BAR ──────────────────────────────────── */
 .scroll-progress {
@@ -1115,10 +1119,11 @@ body { animation: bvEntry .18s ease both; }
   position: absolute; top: calc(100% + 10px); left: 50%;
   transform: translateX(-50%) translateY(4px);
   background: var(--navy-deep); border: 1px solid rgba(255,255,255,0.12);
-  min-width: 76px; padding: 6px 0; z-index: 300;
+  min-width: 76px; padding: 6px 0; z-index: 9999;
   opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s, transform .2s;
+  pointer-events: none;
 }
-.locale-selector.locale-open .locale-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.locale-selector.locale-open .locale-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
 .locale-dropdown button {
   display: block; width: 100%; background: none; border: none;
   font-family: var(--font-sans); font-size: 11px; font-weight: 300;

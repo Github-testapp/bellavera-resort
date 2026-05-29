@@ -18,6 +18,12 @@
     }
   });
 
+  /* ── PAGE HERO ZOOM ──────────────────────────────────────── */
+  var pageHeroEl = document.querySelector('.page-hero');
+  if (pageHeroEl) {
+    requestAnimationFrame(function () { pageHeroEl.classList.add('loaded'); });
+  }
+
   /* ── HERO SLIDESHOW ──────────────────────────────────────── */
   const slides = Array.from(document.querySelectorAll('.hero__slide'));
   const dots   = Array.from(document.querySelectorAll('.hero__dot'));
@@ -183,8 +189,9 @@
       const target = document.getElementById(id);
       if (!target) return;
       e.preventDefault();
-      const offset = parseInt(getComputedStyle(document.documentElement)
-        .getPropertyValue('--hdr-top') || '120', 10) + 16;
+      const barEl    = document.querySelector('.utility-bar');
+      const headerEl = document.getElementById('site-header');
+      const offset   = (barEl ? barEl.offsetHeight : 40) + 3 + (headerEl ? headerEl.offsetHeight : 80) + 20;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
       if (mainNav.classList.contains('open')) closeMenu();
@@ -272,8 +279,10 @@
 
       const today    = new Date().toISOString().split('T')[0];
       const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
-      document.getElementById('rm-checkin').min  = today;
-      document.getElementById('rm-checkout').min = tomorrow;
+      var ciEl = document.getElementById('rm-checkin');
+      var coEl = document.getElementById('rm-checkout');
+      ciEl.min = today;
+      coEl.min = tomorrow;
 
       overlay.hidden = false;
       document.body.style.overflow = 'hidden';
@@ -379,6 +388,17 @@
       overlay.querySelector('.rm-card').scrollTop = 0;
     });
 
+    /* Update checkout min when checkin changes */
+    document.getElementById('rm-checkin').addEventListener('change', function () {
+      if (!this.value) return;
+      var next = new Date(this.value + 'T12:00:00');
+      next.setDate(next.getDate() + 1);
+      var minCo = next.toISOString().split('T')[0];
+      var coEl2 = document.getElementById('rm-checkout');
+      coEl2.min = minCo;
+      if (coEl2.value && coEl2.value <= this.value) coEl2.value = minCo;
+    });
+
     ['rm-checkin', 'rm-checkout', 'rm-room', 'rm-first', 'rm-last', 'rm-email'].forEach(function (id) {
       var el = document.getElementById(id);
       if (el) el.addEventListener('input', function () {
@@ -439,8 +459,9 @@
   /* ── PAGE TRANSITION ─────────────────────────────────────── */
   (function () {
     var hdrOffset = function () {
-      return parseInt(getComputedStyle(document.documentElement)
-        .getPropertyValue('--hdr-top') || '120', 10) + 16;
+      var barEl    = document.querySelector('.utility-bar');
+      var headerEl = document.getElementById('site-header');
+      return (barEl ? barEl.offsetHeight : 40) + 3 + (headerEl ? headerEl.offsetHeight : 80) + 20;
     };
 
     document.addEventListener('click', function (e) {
@@ -472,10 +493,10 @@
       }
 
       e.preventDefault();
-      document.body.style.transition = 'opacity .12s';
+      document.body.style.transition = 'opacity .3s ease';
       document.body.style.opacity = '0';
       var dest = href;
-      setTimeout(function () { window.location.href = dest; }, 130);
+      setTimeout(function () { window.location.href = dest; }, 320);
     });
   })();
 
@@ -501,52 +522,6 @@
   (function () {
     var phone = document.querySelector('.utility-phone');
     if (!phone) return;
-    var openSel = null;
-
-    function buildSel(label, opts) {
-      var sel = document.createElement('div');
-      sel.className = 'locale-selector';
-      sel.innerHTML =
-        '<button class="locale-btn" aria-haspopup="listbox" aria-expanded="false">' +
-        '<span class="locale-label">' + label + '</span>' +
-        ' <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><polyline points="1 1 5 5 9 1"/></svg></button>' +
-        '<div class="locale-dropdown" role="listbox">' +
-        opts.map(function (o, i) { return '<button class="' + (i === 0 ? 'lc-on' : '') + '" data-v="' + o + '" role="option">' + o + '</button>'; }).join('') +
-        '</div>';
-
-      var btn    = sel.querySelector('.locale-btn');
-      var lbl    = sel.querySelector('.locale-label');
-      var ddBtns = Array.from(sel.querySelectorAll('.locale-dropdown button'));
-
-      function open() {
-        if (openSel && openSel !== sel) closeAll();
-        sel.classList.add('locale-open');
-        btn.setAttribute('aria-expanded', 'true');
-        openSel = sel;
-      }
-      function close() {
-        sel.classList.remove('locale-open');
-        btn.setAttribute('aria-expanded', 'false');
-        if (openSel === sel) openSel = null;
-      }
-
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        sel.classList.contains('locale-open') ? close() : open();
-      });
-
-      ddBtns.forEach(function (ob) {
-        ob.addEventListener('click', function (e) {
-          e.stopPropagation();
-          ddBtns.forEach(function (x) { x.classList.remove('lc-on'); });
-          ob.classList.add('lc-on');
-          lbl.textContent = ob.dataset.v;
-          close();
-        });
-      });
-
-      return sel;
-    }
 
     function closeAll() {
       document.querySelectorAll('.locale-selector.locale-open').forEach(function (s) {
@@ -554,10 +529,51 @@
         var b = s.querySelector('.locale-btn');
         if (b) b.setAttribute('aria-expanded', 'false');
       });
-      openSel = null;
     }
 
-    document.addEventListener('click', function () { closeAll(); });
+    function buildSel(label, opts) {
+      var sel = document.createElement('div');
+      sel.className = 'locale-selector';
+      sel.innerHTML =
+        '<button class="locale-btn" aria-haspopup="listbox" aria-expanded="false">' +
+        '<span class="locale-label">' + label + '</span>' +
+        '<svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" xmlns="http://www.w3.org/2000/svg"><polyline points="1 1 5 5 9 1"/></svg></button>' +
+        '<div class="locale-dropdown" role="listbox">' +
+        opts.map(function (o, i) {
+          return '<button class="' + (i === 0 ? 'lc-on' : '') + '" data-v="' + o + '" role="option">' + o + '</button>';
+        }).join('') +
+        '</div>';
+
+      var btn    = sel.querySelector('.locale-btn');
+      var lbl    = sel.querySelector('.locale-label');
+      var ddBtns = Array.from(sel.querySelectorAll('.locale-dropdown button'));
+
+      btn.addEventListener('click', function () {
+        var isOpen = sel.classList.contains('locale-open');
+        closeAll();
+        if (!isOpen) {
+          sel.classList.add('locale-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      ddBtns.forEach(function (ob) {
+        ob.addEventListener('click', function () {
+          ddBtns.forEach(function (x) { x.classList.remove('lc-on'); });
+          ob.classList.add('lc-on');
+          lbl.textContent = ob.dataset.v;
+          sel.classList.remove('locale-open');
+          btn.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      return sel;
+    }
+
+    /* Close on outside click — checked via closest, no stopPropagation needed */
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.locale-wrap')) closeAll();
+    });
 
     var wrap = document.createElement('div');
     wrap.className = 'locale-wrap';
