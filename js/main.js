@@ -438,6 +438,11 @@
 
   /* ── PAGE TRANSITION ─────────────────────────────────────── */
   (function () {
+    var hdrOffset = function () {
+      return parseInt(getComputedStyle(document.documentElement)
+        .getPropertyValue('--hdr-top') || '120', 10) + 16;
+    };
+
     document.addEventListener('click', function (e) {
       var link = e.target.closest('a[href]');
       if (!link) return;
@@ -447,10 +452,29 @@
           href.indexOf('javascript:') === 0 || link.target === '_blank') return;
       if (link.classList.contains('header-cta') ||
           (link.classList.contains('btn--outline-white') && link.closest('.hero__cta-group'))) return;
+
+      // Same-page anchor (e.g. "stays.html#oceanview" while on stays.html)
+      var hashIdx = href.indexOf('#');
+      if (hashIdx > 0) {
+        var pagePart   = href.slice(0, hashIdx).replace(/\.html$/, '');
+        var anchorPart = href.slice(hashIdx + 1);
+        var curBase    = (window.location.pathname.split('/').pop() || 'index').replace(/\.html$/, '');
+        if (pagePart === curBase) {
+          var target = document.getElementById(anchorPart);
+          if (target) {
+            e.preventDefault();
+            var top = target.getBoundingClientRect().top + window.scrollY - hdrOffset();
+            window.scrollTo({ top: top, behavior: 'smooth' });
+            if (mainNav.classList.contains('open')) closeMenu();
+          }
+          return;
+        }
+      }
+
       e.preventDefault();
-      var dest = href;
       document.body.style.transition = 'opacity .12s';
       document.body.style.opacity = '0';
+      var dest = href;
       setTimeout(function () { window.location.href = dest; }, 130);
     });
   })();
