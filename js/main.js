@@ -5,6 +5,19 @@
 (function () {
   'use strict';
 
+  /* ── SOURCE PROTECTION ───────────────────────────────────── */
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('keydown', e => {
+    if (e.key === 'F12') { e.preventDefault(); return; }
+    if (e.ctrlKey) {
+      if (e.key === 'u' || e.key === 'U') { e.preventDefault(); return; }
+      if (e.key === 's' || e.key === 'S') { e.preventDefault(); return; }
+      if (e.shiftKey && ['i','I','j','J','c','C'].includes(e.key)) {
+        e.preventDefault(); return;
+      }
+    }
+  });
+
   /* ── HERO SLIDESHOW ──────────────────────────────────────── */
   const slides = Array.from(document.querySelectorAll('.hero__slide'));
   const dots   = Array.from(document.querySelectorAll('.hero__dot'));

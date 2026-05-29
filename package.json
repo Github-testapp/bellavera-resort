@@ -1,0 +1,11 @@
+{
+  "name": "bellavera-resort",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "javascript-obfuscator js/main.js --output js/main.js --compact true --string-array true --rotate-string-array true --string-array-encoding base64 --identifier-names-generator mangled"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^4.1.1"
+  }
+}
